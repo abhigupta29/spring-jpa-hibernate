@@ -11,8 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.abhishek.jpahibernate.entity.Person;
 import com.abhishek.jpahibernate.jdbc.PersonJdbcDao;
 
-@SpringBootApplication
-public class JpaHibernateApplication implements CommandLineRunner {
+//@SpringBootApplication
+public class JdbcApplication implements CommandLineRunner {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass()); 
 	
@@ -20,7 +20,7 @@ public class JpaHibernateApplication implements CommandLineRunner {
 	PersonJdbcDao personJdbcDao;
 	
 	public static void main(String[] args) {
-		SpringApplication.run(JpaHibernateApplication.class, args);
+		SpringApplication.run(JdbcApplication.class, args);
 	}
 
 	@Override

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.abhishek.jpahibernate.entity.Person;
 
-@Repository
+//@Repository
 public class PersonJdbcDao {
 	
 	@Autowired
@@ -27,7 +27,7 @@ public class PersonJdbcDao {
 			person.setId(rs.getInt("id"));
 			person.setName(rs.getString("name"));
 			person.setLocation(rs.getString("location"));
-			person.setBirthdate(rs.getDate("birth_date"));
+			person.setBirthDate(rs.getDate("birth_date"));
 			return person;
 		}	
 	}
@@ -49,12 +49,12 @@ public class PersonJdbcDao {
 	public int insert(Person person) {
 		return jdbcTemplate.update("insert into person (id, name, location, birth_date) " + "values(?,  ?, ?, ?)",
 				new Object[] { person.getId(), person.getName(), person.getLocation(),
-						person.getBirthdate() });
+						person.getBirthDate() });
 	}
 
 	public int update(Person person) {
 		return jdbcTemplate.update("update person " + " set name = ?, location = ?, birth_date = ? " + " where id = ?",
-				new Object[] { person.getName(), person.getLocation(), person.getBirthdate(),
+				new Object[] { person.getName(), person.getLocation(), person.getBirthDate(),
 						person.getId() });
 	}
 }
