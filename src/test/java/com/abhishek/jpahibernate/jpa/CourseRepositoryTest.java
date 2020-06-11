@@ -5,6 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +26,9 @@ public class CourseRepositoryTest {
 	
 	@Autowired
 	CourseRepository courseRepository;
+	
+	@PersistenceContext
+	EntityManager em;
 	
 	@Test
 	public void findById_test() {
@@ -53,5 +60,14 @@ public class CourseRepositoryTest {
 	public void findAll_test() {
 		List<Course> courses = courseRepository.findAll();
 		logger.info("Courses -> {}", courses);
+	}
+	
+	@Test
+	@Transactional
+	public void play_with_entity_manager() {
+		Course course = new Course("Microservices");
+		em.persist(course);
+		course.setName("Microservices in 100 steps");
+		logger.info("Course -> {}",em.find(Course.class, 1L).getName());
 	}
 }
