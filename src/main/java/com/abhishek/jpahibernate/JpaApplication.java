@@ -26,16 +26,16 @@ public class JpaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("User id 10001 -> {}", repository.findById(10001));
-		
-		logger.info("Inserting -> {}", 
-				repository.insert(new Person("Tara", "Berlin", new Date())));
-		
-		logger.info("Update 10003 -> {}", 
-				repository.update(new Person(10003, "Pieter", "Utrecht", new Date())));
-		
-		repository.deleteById(10002);
-
-		logger.info("All users -> {}", repository.findAll());
+//		logger.info("User id 10001 -> {}", repository.findById(10001));
+//		
+//		logger.info("Inserting -> {}", 
+//				repository.insert(new Person("Tara", "Berlin", new Date())));
+//		
+//		logger.info("Update 10003 -> {}", 
+//				repository.update(new Person(10003, "Pieter", "Utrecht", new Date())));
+//		
+//		repository.deleteById(10002);
+//
+//		logger.info("All users -> {}", repository.findAll());
 	}
 }
